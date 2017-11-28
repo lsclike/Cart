@@ -1,27 +1,9 @@
 <h1>Edit</h1>
-<%= form_for(@product) do |f|%>
-    <table>
-      <tr>
-        <th>Title:</th>
-        <td><%= f.text_field(:title, size:30)%> </td>
-      </tr>
 
-      <tr>
-        <th>Description</th>
-        <td><%=f.text_area(:description, size: "40x20") %></td>
-      </tr>
+<%= render 'form', product: @product%>
 
-      <tr>
-        <th>Image url:</th>
-        <td><%= f.text_field(:image_url, size:30 )%></td>
-      </tr>>
-      <tr>
-        <th>Price:</th>
-        <td><%= f.text_field(:price ) %></td>
-      </tr>
-    </table>
-    <%=f.submit("Update product ")%>
-    <%= link_to 'Back', root_path%>
+<%= link_to 'show',product_path(@product)%>
+<%= link_to 'back', root_path%>
 
-<%end%>
+
 

@@ -37,8 +37,7 @@ class ProductsController < ApplicationController
   def destroy
 
      @product.destroy
-     notice :"the product"
-     redirect_to(root_path) #why can't use render('root')#
+     redirect_to(root_path) #why can't use render('root')
   end
 
   def set_products
