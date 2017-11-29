@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_products, only: [:show, :edit,:update, :destroy]
 
   def index
-    @products = Product.all
+    @products = Product.all #why can't change to @product #
   end
 
   def new

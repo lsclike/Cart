@@ -1,6 +1,15 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @product = products(:one)
+    @update = {
+        title: 'Test book',
+        description: 'Nothing to talk about',
+        image_url: 'test.jpg',
+        price: 10.25
+    }
+  end
   test "should get index" do
     get products_index_url
     assert_response :success
