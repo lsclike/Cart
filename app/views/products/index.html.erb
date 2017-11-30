@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Products</h1>
 <%= form_with(model: @product, local: true) do |product|%>
     <%=label(:q,"Search")%>
@@ -44,8 +46,7 @@
 </table>
 <br>
 <br>
-
-<%= link_to 'New Products', new_product_path %>
-
 <br>
+
+
 

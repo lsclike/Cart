@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
     if @product.save
 
-      redirect_to(root_path)
+      redirect_to(products_path)
     else
       render('new')
 
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     @product.update_attributes(product_params)
-    redirect_to(root_path)
+    redirect_to(products_path)
   end
 
   def show
