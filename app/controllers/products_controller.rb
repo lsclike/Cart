@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
 
     if @product.save
 
-      redirect_to(products_path)
+      redirect_to(product_path(@product))
     else
       render('new')
 
@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 
   def update
     @product.update_attributes(product_params)
-    redirect_to(products_path)
+    redirect_to(product_path(@product))
   end
 
   def show
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   def destroy
 
      @product.destroy
-     redirect_to(root_path) #why can't use render('root')
+     redirect_to(products_url) #why can't use render('root')
   end
 
   def set_products
