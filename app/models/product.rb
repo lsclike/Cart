@@ -1,5 +1,9 @@
 class Product < ApplicationRecord
 
+  has_many :line_items
+
+  before_destroy :ensure_not_referenced_by_any_line_item
+
   scope :search, lambda {|query| where(["title LIKE ?","%#{query}%" ])}
   validates :title, :description, :image_url, presence: true
 
@@ -15,5 +19,12 @@ class Product < ApplicationRecord
       message: 'must be a url for GIF, JPG or PNG image.'
   }
 
+  private
+   def ensure_not_referenced_by_any_line_item
+     unless line_items.empty?
+       errors.add(:base, 'Line Items present')
+       throw :abort
+     end
+   end
 
 end
