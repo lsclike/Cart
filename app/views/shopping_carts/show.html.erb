@@ -1,4 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
+<h2>Your Pragmatic Cart</h2>
+<ul>
+  <% @shopping_cart.line_items.each do |item| %>
+      <li><%= item.product.title %></li>
+  <% end %>
+</ul>
+
 <%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> |
-<%= link_to 'Back', shopping_carts_path %>
+<%= link_to 'Back', store_index_path %>
